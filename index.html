@@ -230,7 +230,7 @@
 
   <!-- Mobile Drawer (off-canvas nav) -->
   <div id="mobileDrawer" class="lg:hidden fixed inset-0 z-30" aria-hidden="true">
-    <div id="drawerBackdrop" class="drawer-backdrop absolute inset-0 bg-black/40" tabindex="-1" aria-hidden="true"></div>
+
     <aside class="mobile-drawer absolute right-0 top-0 h-full w-80 bg-white shadow-lg p-6 overflow-y-auto" role="dialog" aria-modal="true">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
@@ -304,8 +304,7 @@
     // Mobile drawer toggling
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerBackdrop = document.getElementById('drawerBackdrop');
-    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+ 
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function openDrawer() {
