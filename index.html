@@ -6,7 +6,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLH4GJQ4GX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments);} 
   gtag('js', new Date());
 
   gtag('config', 'G-KLH4GJQ4GX');
@@ -54,14 +54,46 @@
     .nav-link {
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+
+    /* Mobile drawer transitions */
+    .mobile-drawer {
+      transform: translateX(100%);
+      transition: transform 0.25s ease-in-out;
+    }
+    .mobile-drawer.open {
+      transform: translateX(0%);
+    }
+
+    /* Ensure focus outline is visible on overlays */
+    .drawer-backdrop:focus {
+      outline: none;
+    }
   </style>
 </head>
 <body class="bg-base text-gray-900 antialiased font-sans">
+  <!-- Mobile Header (shown on small screens) -->
+  <header class="lg:hidden fixed inset-x-0 top-0 bg-white border-b z-20">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <img src="images/profile.jpg" alt="Photo of Maharab Hossen" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/30" loading="lazy" width="40" height="40" />
+        <div>
+          <div class="text-sm font-semibold text-primary">Maharab Hossen</div>
+          <div class="text-xs text-gray-600">AI Researcher & Vision Developer</div>
+        </div>
+      </div>
+      <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" aria-label="Open navigation menu" class="p-2 rounded-md hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary">
+        <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
   <!-- Wrapper -->
-  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:space-x-8 min-h-screen">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:space-x-8 min-h-screen pt-16 lg:pt-0">
     
-    <!-- Sidebar -->
-    <aside class="w-full lg:max-w-xs bg-white border-b lg:border-r sticky top-0 lg:static shadow-md z-10" aria-label="Sidebar">
+    <!-- Sidebar (hidden on small screens; shown on lg and up) -->
+    <aside class="hidden lg:block lg:max-w-xs bg-white border-r sticky top-0 lg:static shadow-md z-10" aria-label="Sidebar">
       <div class="py-10 px-6 text-center">
         <img src="images/profile.jpg" alt="Photo of Maharab Hossen" class="w-40 h-40 rounded-full object-cover ring-4 ring-primary/30 mx-auto" loading="lazy" width="160" height="160" />
         <h1 class="mt-4 text-3xl font-bold text-primary">Maharab Hossen</h1>
@@ -93,14 +125,14 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-8 space-y-14">
+    <main class="flex-1 p-6 lg:p-8 space-y-14">
       <section id="about" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">About Me</h2>
-        <p>Innovative Computer Vision Engineer with a Bachelor’s degree in Computer Science and Technology (CST), passionate about autonomous systems, human-centric AI, and cybersecurity. Educated in China, I merge multicultural perspective with robust technical expertise, enabling me to solve complex engineering and research challenges with creativity and adaptability.
+        <p>Innovative Computer Vision Engineer with a Bachelor’s degree in Computer Science and Technology (CST), passionate about autonomous systems, human-centric AI, and cybersecurity. Educat[...]</p>
 
-My academic and project experiences span computer vision, robotics, embedded AI, and secure systems, where I have designed and implemented autonomous vehicle pipelines, intelligent perception modules, and academic-grade robotics projects. Proficient in Jetson Nano, ROS, YOLOv, OpenCV, and embedded platforms, I specialize in turning theoretical models into deployable real-time solutions. Alongside vision and robotics, I maintain a strong interest in cybersecurity, focusing on privacy-preserving AI, secure communication protocols, and resilience of autonomous systems against cyber threats.
+        <p>My academic and project experiences span computer vision, robotics, embedded AI, and secure systems, where I have designed and implemented autonomous vehicle pipelines, intelligent perception mod[...]</p>
 
-I aim to contribute to advancing research in real-time computer vision, intelligent robotics, and secure AI-driven systems, bridging the gap between cutting-edge innovation and real-world impact.</p>
+        <p>I aim to contribute to advancing research in real-time computer vision, intelligent robotics, and secure AI-driven systems, bridging the gap between cutting-edge innovation and real-world impact.[...]</p>
       </section>
 
       <section id="education" class="fade space-y-4" tabindex="0">
@@ -177,7 +209,7 @@ I aim to contribute to advancing research in real-time computer vision, intellig
 
       <section id="why" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Why Me</h2>
-        <p>I pair hands-on engineering skills with academic rigour and cross-cultural communication. My work spans robotics, AI, and computer vision, built for both research and real-world deployment. I’m a dedicated, multilingual team player who thrives on innovation and collaborative problem solving.</p>
+        <p>I pair hands-on engineering skills with academic rigour and cross-cultural communication. My work spans robotics, AI, and computer vision, built for both research and real-world deploy[...]</p>
       </section>
 
       <section id="contact" class="fade space-y-4" tabindex="0">
@@ -189,7 +221,50 @@ I aim to contribute to advancing research in real-time computer vision, intellig
     </main>
   </div>
 
+  <!-- Mobile Drawer (off-canvas nav) -->
+  <div id="mobileDrawer" class="lg:hidden fixed inset-0 z-30" aria-hidden="true">
+    <div id="drawerBackdrop" class="drawer-backdrop absolute inset-0 bg-black/40" tabindex="-1" aria-hidden="true"></div>
+    <aside class="mobile-drawer absolute right-0 top-0 h-full w-80 bg-white shadow-lg p-6 overflow-y-auto" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <img src="images/profile.jpg" alt="Photo of Maharab Hossen" class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/30" loading="lazy" width="48" height="48" />
+          <div>
+            <div class="text-sm font-semibold text-primary">Maharab Hossen</div>
+            <div class="text-xs text-gray-600">AI Researcher</div>
+          </div>
+        </div>
+        <button id="closeDrawerBtn" aria-label="Close navigation menu" class="p-2 rounded-md hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <nav>
+        <ul class="space-y-3 text-sm font-medium text-gray-800">
+          <li><a href="#about" class="mobile-link block px-3 py-2 rounded-md nav-link">👤 About Me</a></li>
+          <li><a href="#education" class="mobile-link block px-3 py-2 rounded-md nav-link">🎓 Education</a></li>
+          <li><a href="#skills" class="mobile-link block px-3 py-2 rounded-md nav-link">🛠️ Skills</a></li>
+          <li><a href="#languages" class="mobile-link block px-3 py-2 rounded-md nav-link">🌐 Languages</a></li>
+          <li><a href="#certs" class="mobile-link block px-3 py-2 rounded-md nav-link">📜 Certifications</a></li>
+          <li><a href="#awards" class="mobile-link block px-3 py-2 rounded-md nav-link">🏆 Awards</a></li>
+          <li><a href="#research" class="mobile-link block px-3 py-2 rounded-md nav-link">🔬 Research</a></li>
+          <li><a href="#projects" class="mobile-link block px-3 py-2 rounded-md nav-link">💡 Projects</a></li>
+          <li><a href="#why" class="mobile-link block px-3 py-2 rounded-md nav-link">🌟 Why Me</a></li>
+          <li><a href="#contact" class="mobile-link block px-3 py-2 rounded-md nav-link">📬 Contact</a></li>
+        </ul>
+
+        <div class="mt-6 text-sm text-gray-600">
+          <p><strong>Email:</strong> <a href="mailto:maharab131@gmail.com" class="text-accent hover:underline">maharab131@gmail.com</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/maharabhossen" class="text-accent hover:underline">@maharab549</a></p>
+          <p class="mt-2"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/maharab-hossen" class="text-accent hover:underline">in/maharabhossen</a></p>
+        </div>
+      </nav>
+    </aside>
+  </div>
+
   <script>
+    // Intersection observer for fade-in
     const fades = document.querySelectorAll('.fade');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -200,6 +275,7 @@ I aim to contribute to advancing research in real-time computer vision, intellig
     }, { rootMargin: '-10%' });
     fades.forEach(el => observer.observe(el));
 
+    // Active link highlight logic
     const links = document.querySelectorAll('.nav-link');
     const sections = Array.from(document.querySelectorAll('section[id]'));
     function updateActiveLink() {
@@ -217,6 +293,51 @@ I aim to contribute to advancing research in real-time computer vision, intellig
     }
     window.addEventListener('scroll', updateActiveLink);
     window.addEventListener('load', updateActiveLink);
+
+    // Mobile drawer toggling
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openDrawer() {
+      mobileDrawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      mobileDrawer.querySelector('.mobile-drawer').classList.add('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeDrawer() {
+      mobileDrawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      mobileDrawer.querySelector('.mobile-drawer').classList.remove('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    mobileMenuBtn && mobileMenuBtn.addEventListener('click', (e) => {
+      const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeDrawer(); else openDrawer();
+    });
+    closeDrawerBtn && closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerBackdrop && drawerBackdrop.addEventListener('click', closeDrawer);
+
+    // Close drawer when any mobile link is clicked and navigate
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        closeDrawer();
+      });
+    });
+
+    // Ensure drawer is closed when resizing to large screens
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        // close any open mobile drawer
+        const mdDrawer = mobileDrawer && mobileDrawer.querySelector('.mobile-drawer');
+        if (mdDrawer && mdDrawer.classList.contains('open')) {
+          closeDrawer();
+        }
+      }
+    });
   </script>
 </body>
 </html>
