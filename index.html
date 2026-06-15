@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KLH4GJQ4GX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date());
+
+  gtag('config', 'G-KLH4GJQ4GX');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Maharab Hossen — System Structure & Intelligent Computation researcher. Master's applicant in Artificial Intelligence and Computer Systems." />
-  <title>Maharab Hossen · System Structure & Intelligent Computation</title>
+  <meta name="description" content="Maharab Hossen – AI & Computer Vision engineer; academic CV and project portfolio for master's admission." />
+  <title>Maharab Hossen · Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,48 +33,83 @@
     };
   </script>
   <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
-    .fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade.show { opacity: 1; transform: none; }
-    a:focus-visible, button:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
-    .nav-link { transition: background-color 0.3s ease, color 0.3s ease; }
-    .mobile-drawer { transform: translateX(100%); transition: transform 0.25s ease-in-out; }
-    .mobile-drawer.open { transform: translateX(0%); }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 4.5rem;
+    }
+    .fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: none;
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
+      outline-style: solid;
+    }
+    .nav-link {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Mobile drawer transitions */
+    .mobile-drawer {
+      transform: translateX(100%);
+      transition: transform 0.25s ease-in-out;
+    }
+    .mobile-drawer.open {
+      transform: translateX(0%);
+    }
+
+    /* Ensure focus outline is visible on overlays */
+    .drawer-backdrop:focus {
+      outline: none;
+      .drawer-backdrop {
+  display: none;
+}
+.mobile-drawer.open + .drawer-backdrop,
+#mobileDrawer[aria-hidden="false"] .drawer-backdrop {
+  display: block;
+}
+    }
   </style>
 </head>
 <body class="bg-base text-gray-900 antialiased font-sans">
-
-  <!-- Mobile Header -->
+  <!-- Mobile Header (shown on small screens) -->
   <header class="lg:hidden fixed inset-x-0 top-0 bg-white border-b z-20">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
       <div class="flex items-center gap-3">
         <img src="images/profile.jpg" alt="Photo of Maharab Hossen" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/30" loading="lazy" width="40" height="40" />
         <div>
           <div class="text-sm font-semibold text-primary">Maharab Hossen</div>
-          <div class="text-xs text-gray-600">System Structure & Intelligent Computation</div>
+          <div class="text-xs text-gray-600">AI Researcher & Vision Developer</div>
         </div>
       </div>
-      <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" aria-label="Open navigation menu" class="p-2 rounded-md hover:bg-primary/10">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" aria-label="Open navigation menu" class="p-2 rounded-md hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary">
+        <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </header>
 
+  <!-- Wrapper -->
   <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:space-x-8 min-h-screen pt-16 lg:pt-0">
     
-    <!-- Sidebar -->
+    <!-- Sidebar (hidden on small screens; shown on lg and up) -->
     <aside class="hidden lg:block lg:max-w-xs bg-white border-r sticky top-0 lg:static shadow-md z-10" aria-label="Sidebar">
       <div class="py-10 px-6 text-center">
         <img src="images/profile.jpg" alt="Photo of Maharab Hossen" class="w-40 h-40 rounded-full object-cover ring-4 ring-primary/30 mx-auto" loading="lazy" width="160" height="160" />
         <h1 class="mt-4 text-3xl font-bold text-primary">Maharab Hossen</h1>
-        <p class="text-primary font-medium">System Structure & Intelligent Computation</p>
-        <p class="text-sm text-gray-600 mt-1">AI Researcher · Edge Systems · HW-SW Co-Design</p>
+        <p class="text-primary font-medium">AI Researcher & Vision Developer</p>
+        <p class="text-sm text-gray-600 mt-1"></p> 
       </div>
       <section class="px-6">
-        <ul class="text-sm space-y-2 text-gray-700">
-          <li><strong>Email:</strong> <a href="mailto:maharab131@gmail.com" class="text-accent hover:underline">maharab131@gmail.com</a></li>
+        <ul class="text-sm space-y-1 text-gray-700">
+          <li><strong>Email:</strong> <a href="mailto:maharab@email.com" class="text-accent hover:underline">maharab131@gmail.com</a></li>
           <li><strong>GitHub:</strong> <a href="https://github.com/maharab549" class="text-accent hover:underline">@maharab549</a></li>
           <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/maharab-hossen" class="text-accent hover:underline">in/maharabhossen</a></li>
           <li><strong>WeChat:</strong> <span class="font-medium">maharab131</span></li>
@@ -72,13 +117,15 @@
       </section>
       <nav class="mt-10 px-6 pb-10">
         <ul class="grid gap-3 text-sm font-medium">
-          <li><a href="#about" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">👤 About</a></li>
-          <li><a href="#publications" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">📄 Publications</a></li>
+          <li><a href="#about" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">👤 About Me</a></li>
           <li><a href="#education" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🎓 Education</a></li>
+          <li><a href="#skills" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🛠️ Skills</a></li>
+          <li><a href="#languages" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🌐 Languages</a></li>
+          <li><a href="#certs" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">📜 Certifications</a></li>
+          <li><a href="#awards" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🏆 Awards</a></li>
           <li><a href="#research" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🔬 Research</a></li>
           <li><a href="#projects" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">💡 Projects</a></li>
-          <li><a href="#awards" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🏆 Awards</a></li>
-          <li><a href="#skills" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🛠️ Skills</a></li>
+          <li><a href="#why" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">🌟 Why Me</a></li>
           <li><a href="#contact" class="nav-link px-4 py-2 rounded-md hover:bg-primary hover:text-white">📬 Contact</a></li>
         </ul>
       </nav>
@@ -86,198 +133,208 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-6 lg:p-8 space-y-14">
-
-      <!-- ABOUT -->
       <section id="about" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">About Me</h2>
-        <p>I am a final-year Computer Science student at <strong>Nanjing Tech University</strong> (graduating June 2027), specializing in <strong>System Structure and Intelligent Computation</strong> and <strong>Artificial Intelligence</strong>. My research focuses on HW-SW co-design for efficient AI systems, edge computing architectures, and real-time intelligent systems.</p>
-        
-        <p>My work bridges theoretical system architecture with deployable edge AI solutions. I have designed end-to-end autonomous vehicle perception pipelines, optimized deep learning models for embedded platforms (Jetson Nano), and published research in <strong>Oxford University Press</strong>. I am particularly interested in system-level optimization of intelligent computation — including compiler optimization, memory-efficient inference, and cross-layer AI system design.</p>
-        
-        <p>I am seeking a <strong>Master's opportunity in System Structure and Intelligent Computation / Artificial Intelligence</strong>, with a focus on HW-SW co-design, edge AI systems, and efficient intelligent computation architectures.</p>
+        <p>I am a Computer Science student at Nanjing Tech University with a passion for computer vision, robotics, and AI research. I am interested in intelligent computing and systems architecture, autonomous systems, human-centric AI, and cybersecurity. Educated in China, I merge multicultural perspective with robust technical expertise, enabling me to solve complex engineering and research challenges with creativity and adaptability.</p>
+
+        <p>My academic and project experiences span computer vision, robotics, embedded AI, and secure systems, where I have designed and implemented autonomous vehicle pipelines, intelligent perception modules, and academic-grade robotic projects. Proficient in Jetson Nano, ROS, YOLOv5, OpenCV, and embedded platforms, I specialize in turning theoretical models into deployable real-time solutions. I maintain strong interests in cybersecurity and intelligent system architectures, focusing on privacy-preserving AI, secure communication protocols, and resilience of autonomous systems against cyber threats.</p>
+
+        <p>I aim to contribute to advancing research in computer vision, intelligent robotics, and secure AI-driven systems, bridging the gap between cutting-edge innovation and real-world impact.</p>
       </section>
 
-      <!-- PUBLICATIONS -->
-      <section id="publications" class="fade space-y-4" tabindex="0">
-        <h2 class="text-2xl font-semibold text-primary border-b pb-1">📄 Publications</h2>
-        <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-          <p class="font-semibold text-accent">Oxford University Press</p>
-          <p class="text-sm text-gray-700 mt-1"><strong>[Your Paper Title]</strong> — [Brief description of topic, e.g., "System Architecture for Efficient Edge AI Inference"]</p>
-          <p class="text-sm text-gray-600 mt-1">Published in [Journal Name], [Year].</p>
-          <p class="text-sm mt-2">
-            <a href="[LINK-TO-PDF]" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ Download PDF</a> · 
-            <a href="[LINK-TO-CODE]" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Code</a>
-          </p>
-        </div>
-      </section>
-
-      <!-- EDUCATION -->
       <section id="education" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Education</h2>
         <ul class="list-disc pl-5 space-y-2">
-          <li><strong>B.Sc. in Computer Science & Technology</strong>, Nanjing Tech University, China — <em>Graduating June 2027</em></li>
-          <li class="ml-6 text-sm text-gray-600">Core: Deep Learning, Robotics, Computer Vision, Embedded Systems, Machine Learning, Distributed Systems, Systems Architecture, Intelligent Computation</li>
-          <li class="ml-6 text-sm text-gray-600">CGPA: <strong>3.50+/4.00</strong></li>
-          
-          <li><strong>Higher Secondary School in Science</strong>, Misir Ali Khan Memorial College, Bangladesh — <strong>GPA 5.0/5.0</strong> (2022)</li>
+          <li><strong>B.Sc. in Computer Science & Technology</strong>, Nanjing Tech University, China — Graduating June 2027</li>
+          <li class="ml-6 text-sm text-gray-600">Core: Deep Learning, Robotics, Computer Vision, Embedded Systems, Machine Learning, AI Ethics, Distributed Systems, Systems Architecture</li>
+
+          <li><strong>Higher Secondary School in Science</strong>, Misir Ali Khan Memorial College, Bangladesh — GPA 5.0/5.0 (2022)</li>
+          <li class="ml-6 text-sm text-gray-600">Core: Math, Physics, Chemistry, Biology, History</li>
         </ul>
       </section>
 
-      <!-- RESEARCH INTERESTS -->
-      <section id="research" class="fade space-y-4" tabindex="0">
-        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Research Interests</h2>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold text-accent">System Structure & Intelligent Computation</p>
-            <p class="text-sm text-gray-700 mt-1">Distributed systems, high-performance computing, scalable AI infrastructure, compiler optimization for AI workloads</p>
-          </div>
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold text-accent">HW-SW Co-Design for AI</p>
-            <p class="text-sm text-gray-700 mt-1">Edge AI deployment, TensorRT optimization, memory-efficient inference, embedded system acceleration</p>
-          </div>
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold text-accent">Computer Vision & Perception</p>
-            <p class="text-sm text-gray-700 mt-1">Real-time object detection, semantic segmentation, sensor fusion, SLAM for autonomous systems</p>
-          </div>
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold text-accent">Autonomous Systems</p>
-            <p class="text-sm text-gray-700 mt-1">Robotics perception, navigation algorithms, ROS-based control architectures, real-time decision pipelines</p>
-          </div>
+      <section id="skills" class="fade space-y-4" tabindex="0">
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Skills</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div><h3 class="font-semibold">Programming</h3><p>Python · C++ · JavaScript · Bash</p></div>
+          <div><h3 class="font-semibold">Frameworks</h3><p>PyTorch · TensorFlow · ROS · Flask</p></div>
+          <div><h3 class="font-semibold">Vision / Edge</h3><p>OpenCV · YOLOv · Jetson Nano · TensorRT</p></div>
+          <div><h3 class="font-semibold">Tools</h3><p>Git · Docker · Anaconda · Cuda · Figma · Adobe Photoshop · Adobe illustrator . Microsoft Office application</p></div>
         </div>
       </section>
 
-      <!-- PROJECTS -->
+      <section id="languages" class="fade space-y-4" tabindex="0">
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Languages</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Bengali:</strong> Native</li>
+          <li><strong>English:</strong> Professional Proficiency</li>
+          <li><strong>Chinese (Mandarin):</strong> Conversational</li>
+        </ul>
+      </section>
+
+      <section id="certs" class="fade space-y-4" tabindex="0">
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Certifications</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Professional Certifications:</strong></li>
+          <li class="ml-6">Certified Systems Architecture Professional — in progress</li>
+          <li class="ml-6">Advanced Intelligent Computing & Deep Learning — Coursera</li>
+          <li class="ml-6">Distributed Systems & Cloud Architecture — Linux Academy</li>
+          <li><strong class="mt-4">Advanced Technical Certifications:</strong></li>
+          <li class="ml-6">Deep Learning Specialization — Coursera</li>
+          <li class="ml-6">Jetson Nano Developer Workshop — NVIDIA</li>
+          <li class="ml-6">Advanced Computer Vision with OpenCV — Professional</li>
+          <li class="ml-6">Cyber Security: Enterprise Grade — Udemy</li>
+          <li class="ml-6">Blockchain Architecture & Development — Hardware Academy</li>
+        </ul>
+      </section>
+
+      <section id="awards" class="fade space-y-4" tabindex="0">
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Awards</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li> 27th China Robot and Artificial Intelligence Competition National Finals- Third Prize </li>
+          <li> 27th China Robot and Artificial Intelligence Competition provincial Final -Second Prize </li>
+          <li>Outstanding International Student — Nanjing Tech University</li>
+          <li>Nanjing Goverment Scholarship — Nanjing Tech University</li>
+          <li>Utshorgo Blood Foundation  — Lifetime Donor Award</li>
+        </ul>
+      </section>
+
+      <section id="research" class="fade space-y-4" tabindex="0">
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Research Interests</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>System Structure & Intelligent Computation: Distributed systems, high-performance computing, and scalable AI infrastructure</li>
+          <li>Computer Vision: Object detection, image segmentation, visual recognition, and real-time perception systems</li>
+          <li>Artificial Intelligence: Deep learning architectures, neural network optimization, and AI model deployment</li>
+          <li>Intelligent Computing: Edge AI, embedded intelligence, and hardware-software co-optimization</li>
+          <li>Autonomous Systems: Robotics perception, navigation algorithms, and human-robot interaction</li>
+          <li>AI Security: Privacy-preserving machine learning and adversarial robustness</li>
+        </ul>
+      </section>
+
       <section id="projects" class="fade space-y-6" tabindex="0">
-        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Research Projects</h2>
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">My Projects</h2>
         
         <div class="space-y-4">
-          <h3 class="text-lg font-semibold text-accent">System Architecture & Intelligent Computation</h3>
+          <h3 class="text-lg font-semibold text-accent mt-4">Core Research Projects</h3>
           
           <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold">🤖 Smart Navigation Robot — Intelligent Path Planning & System Architecture</p>
-            <p class="text-sm text-gray-700 mt-1"><strong>Thesis Project.</strong> Vision-guided autonomous navigation with real-time decision-making. Integrates computer vision, SLAM, and <strong>distributed control architecture</strong> for intelligent path optimization. System-level latency profiling and memory optimization on embedded platforms.</p>
-            <p class="text-sm text-gray-600 mt-1"><strong>Tech:</strong> ROS, OpenCV, Jetson Nano, SLAM, Python | <strong>Focus:</strong> System architecture, real-time scheduling, edge deployment</p>
+            <p><strong>🤖 Smart Navigation Robot with Intelligent Path Planning</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Vision-guided autonomous navigation system with real-time decision-making (Thesis Project). Integrates computer vision, SLAM, and distributed control architecture for intelligent path optimization.</p>
           </div>
           
           <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold">🚗 Autonomous Vehicle System — YOLOv5 + ROS + Jetson Nano</p>
-            <p class="text-sm text-gray-700 mt-1">End-to-end autonomous driving pipeline with <strong>HW-SW co-optimization</strong>. Real-time object detection, lane tracking, sign recognition, and hierarchical control fusion. Achieved <strong>44% latency reduction</strong> through TensorRT FP16 optimization and model pruning.</p>
-            <p class="text-sm text-gray-600 mt-1"><strong>System Performance:</strong> 25 FPS inference on Jetson Nano 4GB | <strong>Tech:</strong> YOLOv5, TensorRT, ROS, Python, C++</p>
+            <p><strong>🚗 Autonomous Vehicle System with YOLOv5 & ROS</strong></p>
+            <p class="text-sm text-gray-700 mt-1">End-to-end autonomous driving pipeline on Jetson Nano. Real-time object detection, lane tracking, sign recognition, and hierarchical control fusion using ROS framework for embedded systems.</p>
             <p class="text-sm mt-2"><a href="https://github.com/maharab549/Autonomous-Driving-vison-Based" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
           </div>
           
           <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold">🎯 Road Segmentation & Control Fusion Node (ROS)</p>
-            <p class="text-sm text-gray-700 mt-1">Real-time scene understanding module with <strong>perception-planning-control pipeline architecture</strong>. Semantic segmentation with OpenCV, distributed processing for autonomous vehicle perception stack, message passing optimization.</p>
-            <p class="text-sm text-gray-600 mt-1"><strong>Focus:</strong> System integration, ROS node architecture, real-time data flow</p>
+            <p><strong>👤 Posture Estimation & Ergonomic Analysis Pipeline</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Real-time human keypoint detection system for ergonomic monitoring. Employs deep learning-based pose estimation with cloud analytics for workplace safety applications.</p>
           </div>
         </div>
         
         <div class="space-y-4">
-          <h3 class="text-lg font-semibold text-accent">Edge AI & Model Optimization</h3>
+          <h3 class="text-lg font-semibold text-accent">Systems & Architecture Projects</h3>
           
           <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold">👤 Posture Estimation & Ergonomic Analysis Pipeline</p>
-            <p class="text-sm text-gray-700 mt-1">Real-time human keypoint detection with <strong>edge-cloud partitioning</strong> and model compression. Deployed on embedded devices with latency-aware inference scheduling.</p>
-            <p class="text-sm text-gray-600 mt-1"><strong>Focus:</strong> Edge deployment, model optimization, real-time inference</p>
+            <p><strong>⛓️ Blockchain Data Sharing Platform</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Distributed data sharing system built on Ethereum blockchain. Demonstrates secure, decentralized architecture patterns and smart contract integration for trustless data exchange.</p>
+            <p class="text-sm mt-2"><a href="https://github.com/maharab549/block-chain-data-sharing-platform" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
           </div>
           
           <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p class="font-semibold">🤖 ULTRON AI — General-Purpose AI Agent</p>
-            <p class="text-sm text-gray-700 mt-1">Open-source AI agent with local LLM support via LM Studio. Multi-modal intelligent assistant with <strong>system architecture for model serving and inference scheduling</strong>.</p>
+            <p><strong>💰 Cryptocurrency Prediction System with AI</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Intelligent forecasting system using LSTM and attention mechanisms. Combines historical market data with sentiment analysis from news sources for multi-modal prediction architecture.</p>
+            <p class="text-sm mt-2"><a href="https://github.com/maharab549/crypto_predictor_ai" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
+          </div>
+          
+          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
+            <p><strong>🎯 Road Segmentation & Control Fusion Node (ROS)</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Real-time scene understanding module integrating semantic segmentation with OpenCV. Implements distributed processing for autonomous vehicle perception stack.</p>
+          </div>
+          
+          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
+            <p><strong>🤖 ULTRON AI - General-Purpose AI Agent</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Open-source AI agent alternative with local LLM support via LM Studio. Multi-modal intelligent assistant demonstrating advanced prompt engineering, context management, and autonomous task execution capabilities.</p>
             <p class="text-sm mt-2"><a href="https://github.com/maharab549/ultron-ai" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
           </div>
         </div>
-      </section>
-
-      <!-- AWARDS -->
-      <section id="awards" class="fade space-y-4" tabindex="0">
-        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Awards & Honors</h2>
-        <ul class="list-disc pl-5 space-y-2">
-          <li><strong>27th China Robot and Artificial Intelligence Competition</strong> — National Finals, <strong>Third Prize</strong> (2025)</li>
-          <li><strong>27th China Robot and Artificial Intelligence Competition</strong> — Provincial Final, <strong>Second Prize</strong> (2025)</li>
-          <li><strong>Outstanding International Student</strong> — Nanjing Tech University</li>
-          <li><strong>Nanjing Government Scholarship</strong> — Nanjing Tech University</li>
-        </ul>
-      </section>
-
-      <!-- SKILLS -->
-      <section id="skills" class="fade space-y-4" tabindex="0">
-        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Technical Skills</h2>
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div>
-            <h3 class="font-semibold text-accent">Programming</h3>
-            <p>Python · C++ · Bash</p>
+        
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-accent">AI & Full-Stack Applications</h3>
+          
+          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
+            <p><strong>🎙️ Professional Audiobook Generator System</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Advanced text-to-speech system with audio processing pipeline. Features natural voice synthesis, multi-language support, and audio post-processing for production-quality audiobook generation.</p>
+            <p class="text-sm mt-2"><a href="https://github.com/maharab549/audiobook-system" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
           </div>
-          <div>
-            <h3 class="font-semibold text-accent">ML/DL Frameworks</h3>
-            <p>PyTorch · TensorFlow · TensorRT · ONNX</p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-accent">System & Edge</h3>
-            <p>ROS · ROS2 · Jetson Nano · OpenCV · YOLOv5/v8</p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-accent">Tools & DevOps</h3>
-            <p>Git · Docker · CUDA · Linux</p>
+          
+          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
+            <p><strong>🍽️ Restaurant Management System (Full-Stack)</strong></p>
+            <p class="text-sm text-gray-700 mt-1">Theme-based STP application for restaurant operations. Comprehensive business management system with inventory, order, and staff coordination modules for enterprise users.</p>
           </div>
         </div>
+        <p class="text-sm text-gray-600 mb-4">Explore more projects on <a href="https://github.com/maharab549" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-semibold">GitHub @maharab549</a></p>
       </section>
 
-      <!-- LANGUAGES -->
-      <section class="fade space-y-4" tabindex="0">
-        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Languages</h2>
-        <ul class="list-disc pl-5 space-y-1">
-          <li><strong>Bengali:</strong> Native</li>
-          <li><strong>English:</strong> Professional Proficiency (IELTS/TOEFL ready)</li>
-          <li><strong>Chinese (Mandarin):</strong> Conversational (HSK4 in progress)</li>
-        </ul>
+      <section id="why" class="fade space-y-4" tabindex="0">
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Why Me</h2>
+        <p><strong class="text-accent">Systems Architecture & Intelligent Computing Expertise:</strong> I combine deep theoretical knowledge with practical architectural design skills. My work spans distributed systems, edge AI optimization, and real-time processing pipelines — areas critical to modern intelligent systems.</p>
+        
+        <p><strong class="text-accent">Proven Research & Development Capability:</strong> I have successfully translated complex problems into deployable solutions across autonomous vehicles, robotic perception, blockchain systems, and AI prediction models. Each project demonstrates not just implementation, but architectural thinking and system-level optimization.</p>
+        
+        <p><strong class="text-accent">Multicultural & Global Perspective:</strong> Educated in China with experience spanning Asia and international collaborations, I bring adaptability and cross-cultural problem-solving to technical challenges.</p>
+        
+        <p><strong class="text-accent">Production-Grade Systems:</strong> My expertise with Jetson Nano, ROS, PyTorch, TensorFlow, Docker, and embedded systems positions me to design and implement intelligent systems that work reliably at scale, not just in lab environments.</p>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Contact</h2>
-        <p>I welcome collaboration and research opportunities. Please reach out for master's supervision discussions.</p>
-        <p class="mt-2"><a href="mailto:maharab131@gmail.com" class="text-accent underline font-semibold">maharab131@gmail.com</a></p>
-        <p><a href="https://github.com/maharab549" class="text-accent hover:underline">GitHub: @maharab549</a></p>
-        <p><a href="https://linkedin.com/in/maharab-hossen" class="text-accent hover:underline">LinkedIn: in/maharabhossen</a></p>
+        <p><a href="mailto:maharab131@gmail.com" class="text-accent underline">Drop me a line</a> — I welcome collaboration</p>
       </section>
 
-      <footer class="pt-10 text-center text-sm text-gray-500">© 2025 Maharab Hossen · System Structure & Intelligent Computation</footer>
+      <footer class="pt-10 text-center text-sm text-gray-500">© 2025 Maharab Hossen </footer>
     </main>
   </div>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (off-canvas nav) -->
   <div id="mobileDrawer" class="lg:hidden fixed inset-0 z-30" aria-hidden="true">
-    <div class="mobile-drawer absolute right-0 top-0 h-full w-80 bg-white shadow-lg p-6 overflow-y-auto" role="dialog" aria-modal="true">
+
+    <aside class="mobile-drawer absolute right-0 top-0 h-full w-80 bg-white shadow-lg p-6 overflow-y-auto" role="dialog" aria-modal="true">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
           <img src="images/profile.jpg" alt="Photo of Maharab Hossen" class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/30" loading="lazy" width="48" height="48" />
           <div>
             <div class="text-sm font-semibold text-primary">Maharab Hossen</div>
-            <div class="text-xs text-gray-600">System Structure & AI</div>
+            <div class="text-xs text-gray-600">AI Researcher</div>
           </div>
         </div>
-        <button id="closeDrawerBtn" aria-label="Close navigation menu" class="p-2 rounded-md hover:bg-primary/10">
+        <button id="closeDrawerBtn" aria-label="Close navigation menu" class="p-2 rounded-md hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
         </button>
       </div>
+
       <nav>
         <ul class="space-y-3 text-sm font-medium text-gray-800">
-          <li><a href="#about" class="mobile-link block px-3 py-2 rounded-md nav-link">👤 About</a></li>
-          <li><a href="#publications" class="mobile-link block px-3 py-2 rounded-md nav-link">📄 Publications</a></li>
+          <li><a href="#about" class="mobile-link block px-3 py-2 rounded-md nav-link">👤 About Me</a></li>
           <li><a href="#education" class="mobile-link block px-3 py-2 rounded-md nav-link">🎓 Education</a></li>
+          <li><a href="#skills" class="mobile-link block px-3 py-2 rounded-md nav-link">🛠️ Skills</a></li>
+          <li><a href="#languages" class="mobile-link block px-3 py-2 rounded-md nav-link">🌐 Languages</a></li>
+          <li><a href="#certs" class="mobile-link block px-3 py-2 rounded-md nav-link">📜 Certifications</a></li>
+          <li><a href="#awards" class="mobile-link block px-3 py-2 rounded-md nav-link">🏆 Awards</a></li>
           <li><a href="#research" class="mobile-link block px-3 py-2 rounded-md nav-link">🔬 Research</a></li>
           <li><a href="#projects" class="mobile-link block px-3 py-2 rounded-md nav-link">💡 Projects</a></li>
-          <li><a href="#awards" class="mobile-link block px-3 py-2 rounded-md nav-link">🏆 Awards</a></li>
-          <li><a href="#skills" class="mobile-link block px-3 py-2 rounded-md nav-link">🛠️ Skills</a></li>
+          <li><a href="#why" class="mobile-link block px-3 py-2 rounded-md nav-link">🌟 Why Me</a></li>
           <li><a href="#contact" class="mobile-link block px-3 py-2 rounded-md nav-link">📬 Contact</a></li>
         </ul>
-        <div class="mt-6 text-sm text-gray-600 space-y-1">
+
+        <div class="mt-6 text-sm text-gray-600">
           <p><strong>Email:</strong> <a href="mailto:maharab131@gmail.com" class="text-accent hover:underline">maharab131@gmail.com</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/maharab549" class="text-accent hover:underline">@maharab549</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/maharabhossen" class="text-accent hover:underline">@maharab549</a></p>
+          <p class="mt-2"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/maharab-hossen" class="text-accent hover:underline">in/maharabhossen</a></p>
         </div>
       </nav>
     </aside>
@@ -287,29 +344,37 @@
     // Intersection observer for fade-in
     const fades = document.querySelectorAll('.fade');
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
     }, { rootMargin: '-10%' });
     fades.forEach(el => observer.observe(el));
 
-    // Active link highlight
+    // Active link highlight logic
     const links = document.querySelectorAll('.nav-link');
     const sections = Array.from(document.querySelectorAll('section[id]'));
     function updateActiveLink() {
       const scrollPos = window.scrollY + 150;
-      let current = sections[0];
-      for (const s of sections) { if (scrollPos >= s.offsetTop) current = s; }
+      let currentSection = sections[0];
+      for (const section of sections) {
+        if (scrollPos >= section.offsetTop) currentSection = section;
+      }
       links.forEach(link => {
         link.classList.remove('bg-primary', 'text-white');
-        if (link.getAttribute('href') === `#${current.id}`) link.classList.add('bg-primary', 'text-white');
+        if (link.getAttribute('href') === `#${currentSection.id}`) {
+          link.classList.add('bg-primary', 'text-white');
+        }
       });
     }
     window.addEventListener('scroll', updateActiveLink);
     window.addEventListener('load', updateActiveLink);
 
-    // Mobile drawer
+    // Mobile drawer toggling
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
-    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+ 
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function openDrawer() {
@@ -325,17 +390,28 @@
       mobileMenuBtn.setAttribute('aria-expanded', 'false');
     }
 
-    mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn && mobileMenuBtn.addEventListener('click', (e) => {
       const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-      expanded ? closeDrawer() : openDrawer();
+      if (expanded) closeDrawer(); else openDrawer();
     });
-    closeDrawerBtn.addEventListener('click', closeDrawer);
-    mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
+    closeDrawerBtn && closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerBackdrop && drawerBackdrop.addEventListener('click', closeDrawer);
 
+    // Close drawer when any mobile link is clicked and navigate
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        closeDrawer();
+      });
+    });
+
+    // Ensure drawer is closed when resizing to large screens
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1024) {
-        const md = mobileDrawer.querySelector('.mobile-drawer');
-        if (md.classList.contains('open')) closeDrawer();
+        // close any open mobile drawer
+        const mdDrawer = mobileDrawer && mobileDrawer.querySelector('.mobile-drawer');
+        if (mdDrawer && mdDrawer.classList.contains('open')) {
+          closeDrawer();
+        }
       }
     });
   </script>
