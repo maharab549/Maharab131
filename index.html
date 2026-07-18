@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KLH4GJQ4GX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);} 
-  gtag('js', new Date());
-
-  gtag('config', 'G-KLH4GJQ4GX');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLH4GJQ4GX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KLH4GJQ4GX');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Maharab Hossen – AI & Computer Vision engineer; academic CV and project portfolio for master's admission." />
@@ -54,8 +52,6 @@
     .nav-link {
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-
-    /* Mobile drawer transitions */
     .mobile-drawer {
       transform: translateX(100%);
       transition: transform 0.25s ease-in-out;
@@ -63,23 +59,43 @@
     .mobile-drawer.open {
       transform: translateX(0%);
     }
-
-    /* Ensure focus outline is visible on overlays */
     .drawer-backdrop:focus {
       outline: none;
-      .drawer-backdrop {
-  display: none;
-}
-.mobile-drawer.open + .drawer-backdrop,
-#mobileDrawer[aria-hidden="false"] .drawer-backdrop {
-  display: block;
-}
+    }
+    .drawer-backdrop {
+      display: none;
+    }
+    .mobile-drawer.open + .drawer-backdrop,
+    #mobileDrawer[aria-hidden="false"] .drawer-backdrop {
+      display: block;
+    }
+    .repo-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+    .repo-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    }
+    .lang-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .star-badge {
+      font-size: 0.75rem;
+      color: #ca8a04;
     }
   </style>
 <base target="_blank">
 </head>
 <body class="bg-base text-gray-900 antialiased font-sans">
-  <!-- Mobile Header (shown on small screens) -->
+
+  <!-- Mobile Header -->
   <header class="lg:hidden fixed inset-x-0 top-0 bg-white border-b z-20">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
       <div class="flex items-center gap-3">
@@ -99,19 +115,20 @@
 
   <!-- Wrapper -->
   <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:space-x-8 min-h-screen pt-16 lg:pt-0">
-    
-    <!-- Sidebar (hidden on small screens; shown on lg and up) -->
+
+    <!-- Sidebar -->
     <aside class="hidden lg:block lg:max-w-xs bg-white border-r sticky top-0 lg:static shadow-md z-10" aria-label="Sidebar">
       <div class="py-10 px-6 text-center">
         <img src="images/profile.jpg" alt="Photo of Maharab Hossen" class="w-40 h-40 rounded-full object-cover ring-4 ring-primary/30 mx-auto" loading="lazy" width="160" height="160" />
         <h1 class="mt-4 text-3xl font-bold text-primary">Maharab Hossen</h1>
         <p class="text-primary font-medium">AI Researcher & Vision Developer</p>
-        <p class="text-sm text-gray-600 mt-1"></p> 
+        <p class="text-sm text-gray-600 mt-1"></p>
       </div>
       <section class="px-6">
         <ul class="text-sm space-y-1 text-gray-700">
-          <li><strong>Email:</strong> <a href="mailto:maharab@email.com" class="text-accent hover:underline">maharab131@gmail.com</a></li>
+          <li><strong>Email:</strong> <a href="mailto:maharab131@gmail.com" class="text-accent hover:underline">maharab131@gmail.com</a></li>
           <li><strong>GitHub:</strong> <a href="https://github.com/maharab549" class="text-accent hover:underline">@maharab549</a></li>
+          <li><strong>Hugging Face:</strong> <a href="https://huggingface.co/maharab131" class="text-accent hover:underline">🤗 maharab131</a></li>
           <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/maharab-hossen" class="text-accent hover:underline">in/maharabhossen</a></li>
           <li><strong>WeChat:</strong> <span class="font-medium">maharab131</span></li>
         </ul>
@@ -135,19 +152,19 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-6 lg:p-8 space-y-14">
+
       <section id="about" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">About Me</h2>
-        <p>I am a Computer Science student at Nanjing Tech University with a passion for computer vision, robotics, and AI research. I am interested in intelligent computing and systems architecture, autonomous systems, human-centric AI, and cybersecurity. Educated in China, I merge multicultural perspective with robust technical expertise, enabling me to solve complex engineering and research challenges with creativity and adaptability.</p>
-
-        <p>My academic and project experiences span computer vision, robotics, embedded AI, and secure systems, where I have designed and implemented autonomous vehicle pipelines, intelligent perception modules, and academic-grade robotic projects. Proficient in Jetson Nano, ROS, YOLOv5, OpenCV, and embedded platforms, I specialize in turning theoretical models into deployable real-time solutions. I maintain strong interests in cybersecurity and intelligent system architectures, focusing on privacy-preserving AI, secure communication protocols, and resilience of autonomous systems against cyber threats.</p>
-
-        <p>I aim to contribute to advancing research in computer vision, intelligent robotics, and secure AI-driven systems, bridging the gap between cutting-edge innovation and real-world impact.</p>
+        <p>Hello! I'm <strong>Maharab Hossen</strong>, a developer and researcher passionate about building intelligent, scalable, and impactful technologies. Currently, I am pursuing my undergraduate degree in the <strong>Department of Artificial Intelligence</strong>, majoring in <strong>Computer Science and Technology</strong>, and I am expected to graduate in <strong>2027</strong>.</p>
+        <p>My primary research interests are <strong>System Architecture</strong> and <strong>Intelligent Computing</strong>, where I explore how modern computing systems can be designed to be scalable, efficient, and intelligent. I am particularly interested in developing architectures that bridge advanced AI with real-world applications, enabling reliable, high-performance systems capable of solving complex challenges.</p>
+        <p>My work spans <strong>artificial intelligence, Large Language Models (LLMs), distributed AI systems, and intelligent software engineering</strong>. I enjoy building AI-driven applications while exploring <strong>LLM fine-tuning, Retrieval-Augmented Generation (RAG), AI agents, model optimization, and the deployment of open-source foundation models</strong>. I am especially interested in how these technologies can be integrated into scalable system architectures to create robust, adaptive, and production-ready intelligent systems.</p>
+        <p>I believe that the future of AI lies not only in developing more capable models but also in designing the architectures that enable them to operate efficiently, reliably, and at scale. My goal is to contribute to research that advances intelligent computing infrastructures while translating cutting-edge AI innovations into practical solutions with real-world impact.</p>
       </section>
 
       <section id="publications" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Publications</h2>
         <ul class="list-disc pl-5 space-y-2">
-          <li><em>Coming soon — manuscript under review with Oxford University Press.</em></li>
+          <li><em>Manuscript under review with Oxford University Press — deep reinforcement learning for intelligent traffic signal control.</em></li>
         </ul>
       </section>
 
@@ -156,7 +173,6 @@
         <ul class="list-disc pl-5 space-y-2">
           <li><strong>B.Sc. in Computer Science & Technology</strong>, Nanjing Tech University, China — Graduating June 2027</li>
           <li class="ml-6 text-sm text-gray-600">Core: Deep Learning, Robotics, Computer Vision, Embedded Systems, Machine Learning, AI Ethics, Distributed Systems, Systems Architecture</li>
-
           <li><strong>Higher Secondary School in Science</strong>, Misir Ali Khan Memorial College, Bangladesh — GPA 5.0/5.0 (2022)</li>
           <li class="ml-6 text-sm text-gray-600">Core: Math, Physics, Chemistry, Biology, History</li>
         </ul>
@@ -165,10 +181,10 @@
       <section id="skills" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Skills</h2>
         <div class="grid sm:grid-cols-2 gap-6">
-          <div><h3 class="font-semibold">Programming</h3><p>Python · C++ · JavaScript · Bash</p></div>
-          <div><h3 class="font-semibold">Frameworks</h3><p>PyTorch · TensorFlow · ROS · Flask</p></div>
+          <div><h3 class="font-semibold">Programming</h3><p>Python · C++ · JavaScript · Bash · CUDA</p></div>
+          <div><h3 class="font-semibold">Frameworks</h3><p>PyTorch · TensorFlow · ROS · ROS2 · Flask</p></div>
           <div><h3 class="font-semibold">Vision / Edge</h3><p>OpenCV · YOLOv5 / YOLOv8 · Jetson Nano · TensorRT</p></div>
-          <div><h3 class="font-semibold">Tools</h3><p>Git · Docker · Anaconda · CUDA · Figma · Adobe Photoshop · Adobe Illustrator, Microsoft Office</p></div>
+          <div><h3 class="font-semibold">Tools</h3><p>Git · Docker · Anaconda · CUDA · Figma · Adobe Illustrator, Microsoft Office</p></div>
         </div>
       </section>
 
@@ -197,97 +213,130 @@
       <section id="awards" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Awards</h2>
         <ul class="list-disc pl-5 space-y-2">
-          <li> 27th China Robot and Artificial Intelligence Competition National Finals- Third Prize </li>
-          <li> 27th China Robot and Artificial Intelligence Competition provincial Final -Second Prize </li>
+          <li>27th China Robot and Artificial Intelligence Competition National Finals — Third Prize</li>
+          <li>27th China Robot and Artificial Intelligence Competition Provincial Final — Second Prize</li>
           <li>Outstanding International Student — Nanjing Tech University</li>
-          <li>Nanjing Goverment Scholarship — Nanjing Tech University</li>
-          <li>Utshorgo Blood Foundation  — Lifetime Donor Award</li>
+          <li>Nanjing Government Scholarship — Nanjing Tech University</li>
+          <li>Utshorgo Blood Foundation — Lifetime Donor Award</li>
         </ul>
       </section>
 
       <section id="research" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Research Interests</h2>
         <ul class="list-disc pl-5 space-y-2">
-          <li>System Structure & Intelligent Computation: Distributed systems, high-performance computing, and scalable AI infrastructure</li>
-          <li>Computer Vision: Object detection, image segmentation, visual recognition, and real-time perception systems</li>
-          <li>Artificial Intelligence: Deep learning architectures, neural network optimization, and AI model deployment</li>
-          <li>Intelligent Computing: Edge AI, embedded intelligence, and hardware-software co-optimization</li>
-          <li>Autonomous Systems: Robotics perception, navigation algorithms, and human-robot interaction</li>
+          <li><strong>System Structure & Intelligent Computation</strong> — Distributed systems, HPC, scalable AI infrastructure</li>
+          <li><strong>Large Language Model Systems</strong> — Quantized inference, compiler optimization, edge deployment</li>
+          <li><strong>Computer Vision & Autonomous Systems</strong> — Real-time perception, sensor fusion, embedded AI</li>
+          <li><strong>Intelligent Computing</strong> — Hardware-software co-optimization, AI accelerators</li>
         </ul>
       </section>
 
       <section id="projects" class="fade space-y-6" tabindex="0">
-        <h2 class="text-2xl font-semibold text-primary border-b pb-1">My Projects</h2>
-        
+        <h2 class="text-2xl font-semibold text-primary border-b pb-1">Projects</h2>
+
         <div class="space-y-4">
-          <h3 class="text-lg font-semibold text-accent mt-4">Research Projects</h3>
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>🤖 Smart Navigation Robot with Intelligent Path Planning</strong></p>
-            <p class="text-sm text-gray-700 mt-1">Vision-guided autonomous navigation system with real-time decision-making (Thesis Project). Integrates computer vision, SLAM, and distributed control architecture for intelligent path optimization.</p>
-          </div>
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>🚗 Autonomous Vehicle System with YOLOv5 & ROS</strong></p>
-            <p class="text-sm text-gray-700 mt-1">End-to-end autonomous driving pipeline on Jetson Nano. Real-time object detection, lane tracking, sign recognition, and hierarchical control fusion using ROS framework for embedded systems.</p>
-            <p class="text-sm mt-2"><a href="https://github.com/maharab549/Autonomous-Driving-vison-Based" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
-          </div>
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>👤 Posture Estimation & Ergonomic Analysis Pipeline</strong></p>
-            <p class="text-sm text-gray-700 mt-1">Real-time human keypoint detection system for ergonomic monitoring. Employs deep learning-based pose estimation with cloud analytics for workplace safety applications.</p>
-          </div>
+          <h3 class="text-lg font-semibold text-accent mt-4">Pinned Repositories</h3>
+
+          <a href="https://github.com/maharab549/Ultra-LLM-Engine" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">🚀 Ultra-LLM-Engine</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Dependency-light NumPy/CUDA reference engine for quantized LLM inference with offload, paged KV cache, batched decoding, checkpoint loading, and speculative decoding.</p>
+            <div class="flex items-center gap-3 mt-2 text-xs text-gray-500">
+              <span class="flex items-center gap-1"><span class="lang-dot bg-blue-500"></span>Python</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/maharab549/M-Reslight_A-Deep-Residual-Reinforcement-Learning-Framework" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">🚦 M-Reslight RL Framework</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Deep reinforcement learning framework for urban traffic signal control in simulation. Reduces average vehicle waiting time while maintaining throughput and operational efficiency.</p>
+            <div class="flex items-center gap-3 mt-2 text-xs text-gray-500">
+              <span class="flex items-center gap-1"><span class="lang-dot bg-orange-500"></span>Jupyter Notebook</span>
+              <span class="star-badge">⭐ 1</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/maharab549/vehicle-former" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">🚗 vehicle-former</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Graph-Augmented Causal Transformer with World Model for Zero-Shot Generalization in Multi-Network Intelligent Connected Vehicle Systems.</p>
+            <div class="flex items-center gap-3 mt-2 text-xs text-gray-500">
+              <span class="flex items-center gap-1"><span class="lang-dot bg-blue-500"></span>Python</span>
+              <span class="star-badge">⭐ 4</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/maharab549/ai-accelerator-compiler" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">⚙️ ai-accelerator-compiler</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Specialized compiler that optimizes deep learning models for AI accelerators with operator fusion, memory optimization, and hardware-specific passes.</p>
+            <div class="flex items-center gap-3 mt-2 text-xs text-gray-500">
+              <span class="flex items-center gap-1"><span class="lang-dot bg-blue-500"></span>Python</span>
+              <span class="star-badge">⭐ 3</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/maharab549/adaptive-dbscan-rl" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">🎯 adaptive-dbscan-rl</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Adaptive DBSCAN clustering enhanced with reinforcement learning for dynamic density-based spatial clustering in autonomous driving perception pipelines.</p>
+            <div class="flex items-center gap-3 mt-2 text-xs text-gray-500">
+              <span class="flex items-center gap-1"><span class="lang-dot bg-blue-500"></span>Python</span>
+              <span class="star-badge">⭐ 3</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/maharab549/Autonomous-Driving-vison-Based" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">🤖 Autonomous-Driving-vision-Based</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Autonomous driving system powered by computer vision and deep learning. Designed to run on embedded platforms (NVIDIA Jetson Nano) with real-time perception and control.</p>
+            <div class="flex items-center gap-3 mt-2 text-xs text-gray-500">
+              <span class="flex items-center gap-1"><span class="lang-dot bg-pink-500"></span>C++</span>
+              <span class="star-badge">⭐ 3</span>
+            </div>
+          </a>
         </div>
-        
+
         <div class="space-y-4">
-          <h3 class="text-lg font-semibold text-accent">Engineering Projects</h3>
-          
-          
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>💰 Cryptocurrency Prediction System with AI</strong></p>
-            <p class="text-sm text-gray-700 mt-1">Intelligent forecasting system using LSTM and attention mechanisms. Combines historical market data with sentiment analysis from news sources for multi-modal prediction architecture.</p>
-            <p class="text-sm mt-2"><a href="https://github.com/maharab549/crypto_predictor_ai" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
-          </div>
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>🎯 Road Segmentation & Control Fusion Node (ROS)</strong></p>
-            <p class="text-sm text-gray-700 mt-1">Real-time scene understanding module integrating semantic segmentation with OpenCV. Implements distributed processing for autonomous vehicle perception stack.</p>
-          </div>
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>🤖 ULTRON AI - General-Purpose AI Agent</strong></p>
-            <p class="text-sm text-gray-700 mt-1">Open-source AI agent alternative with local LLM support via LM Studio. Multi-modal intelligent assistant demonstrating advanced prompt engineering, context management, and autonomous task execution capabilities.</p>
-            <p class="text-sm mt-2"><a href="https://github.com/maharab549/ultron-ai" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
-          </div>
+          <h3 class="text-lg font-semibold text-accent">Additional Repositories</h3>
+
+          <a href="https://github.com/maharab549/ultron-ai" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">🧠 ultron-ai</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Open-source AI agent alternative with local LLM support via LM Studio. Multi-modal intelligent assistant with advanced prompt engineering, context management, and autonomous task execution.</p>
+          </a>
+
+          <a href="https://github.com/maharab549/adaptive-cpu-sim" target="_blank" rel="noopener noreferrer" class="repo-card block">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-primary">💻 adaptive-cpu-sim</p>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <p class="text-sm text-gray-700 mt-1">Adaptive CPU simulation framework for benchmarking and optimizing AI inference workloads across heterogeneous processor architectures.</p>
+          </a>
         </div>
-        
-        <div class="space-y-4">
-          
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>🎙️ Professional Audiobook Generator System</strong></p>
-            <p class="text-sm text-gray-700 mt-1">Advanced text-to-speech system with audio processing pipeline. Features natural voice synthesis, multi-language support, and audio post-processing for production-quality audiobook generation.</p>
-            <p class="text-sm mt-2"><a href="https://github.com/maharab549/audiobook-system" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">→ View Repository</a></p>
-          </div>
-          
-          <div class="p-4 border-l-4 border-accent bg-blue-50 rounded">
-            <p><strong>🍽️ Restaurant Management System (Full-Stack)</strong></p>
-            <p class="text-sm text-gray-700 mt-1">Theme-based STP application for restaurant operations. Comprehensive business management system with inventory, order, and staff coordination modules for enterprise users.</p>
-          </div>
-        </div>
-        <p class="text-sm text-gray-600 mb-4">Explore more projects on <a href="https://github.com/maharab549" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-semibold">GitHub @maharab549</a></p>
+
+        <p class="text-sm text-gray-600 mb-4">Explore more projects on <a href="https://github.com/maharab549" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-semibold">GitHub @maharab549</a> and models on <a href="https://huggingface.co/maharab131" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-semibold">🤗 Hugging Face</a></p>
       </section>
 
       <section id="why" class="fade space-y-4" tabindex="0">
         <h2 class="text-2xl font-semibold text-primary border-b pb-1">Why Me</h2>
-        <p><strong class="text-accent">Systems Architecture & Intelligent Computing Expertise:</strong> I combine deep theoretical knowledge with practical architectural design skills. My work spans distributed systems, edge AI optimization, and real-time processing pipelines — areas critical to modern intelligent systems.</p>
-        
-        <p><strong class="text-accent">Proven Research & Development Capability:</strong> I have successfully translated complex problems into deployable solutions across autonomous vehicles, robotic perception, blockchain systems, and AI prediction models. Each project demonstrates not just implementation, but architectural thinking and system-level optimization.</p>
-        
-        <p><strong class="text-accent">Multicultural & Global Perspective:</strong> Educated in China with experience spanning Asia and international collaborations, I bring adaptability and cross-cultural problem-solving to technical challenges.</p>
-        
-        <p><strong class="text-accent">Production-Grade Systems:</strong> My expertise with Jetson Nano, ROS, PyTorch, TensorFlow, Docker, and embedded systems positions me to design and implement intelligent systems that work reliably at scale, not just in lab environments.</p>
+        <p><strong class="text-accent">Research Focus:</strong> My research bridges AI algorithms and system-level optimization. I have published work on deep reinforcement learning for intelligent traffic control (under review with Oxford University Press), where I designed a multi-agent RL framework that dynamically optimizes signal phases across urban intersections. I am also building a quantized LLM inference engine capable of running 70B-parameter models on consumer GPUs (RTX 5070Ti) through extreme model compression, custom CUDA kernels, and memory-aware offloading strategies. This work sits at the intersection of AI and systems — exactly where next-generation intelligent computing is heading.</p>
+        <p><strong class="text-accent">Technical Depth:</strong> I specialize in the full stack of intelligent system development. On the algorithm side, I work with PyTorch, TensorRT, and custom training pipelines for computer vision and LLM tasks. On the systems side, I optimize CUDA kernels, design compiler passes for quantized inference, and build ROS2-based autonomous perception stacks. My projects demonstrate deployment on severely resource-constrained hardware — from Jetson Nano edge devices to consumer GPUs running trillion-parameter workloads. I have hands-on experience with distributed training, containerized deployment (Docker), and real-time embedded systems, giving me the end-to-end perspective needed for production-grade AI infrastructure.</p>
+        <p><strong class="text-accent">Why China:</strong> Having studied at Nanjing Tech University and won national robotics competitions in China (27th China Robot and AI Competition — National Third Prize, Provincial Second Prize), I am deeply familiar with Chinese academic culture, research expectations, and the innovation ecosystem. I am drawn to top-tier Chinese institutions like SJTU and USTC for their world-leading research in AI systems, high-performance computing, and intelligent computing infrastructure. My multilingual background (Bengali native, English professional, Chinese conversational) and cross-cultural adaptability position me to thrive in collaborative, international research environments. I am committed to contributing to China's advancement in AI systems research while building bridges between global academic communities.</p>
       </section>
 
       <section id="contact" class="fade space-y-4" tabindex="0">
@@ -295,13 +344,12 @@
         <p><a href="mailto:maharab131@gmail.com" class="text-accent underline">Drop me a line</a> — I welcome collaboration</p>
       </section>
 
-      <footer class="pt-10 text-center text-sm text-gray-500">© 2025 Maharab Hossen </footer>
+      <footer class="pt-10 text-center text-sm text-gray-500">© 2025 Maharab Hossen</footer>
     </main>
   </div>
 
-  <!-- Mobile Drawer (off-canvas nav) -->
+  <!-- Mobile Drawer -->
   <div id="mobileDrawer" class="lg:hidden fixed inset-0 z-30" aria-hidden="true">
-
     <aside class="mobile-drawer absolute right-0 top-0 h-full w-80 bg-white shadow-lg p-6 overflow-y-auto" role="dialog" aria-modal="true">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
@@ -333,17 +381,17 @@
           <li><a href="#contact" class="mobile-link block px-3 py-2 rounded-md nav-link">📬 Contact</a></li>
         </ul>
 
-        <div class="mt-6 text-sm text-gray-600">
+        <div class="mt-6 text-sm text-gray-600 space-y-2">
           <p><strong>Email:</strong> <a href="mailto:maharab131@gmail.com" class="text-accent hover:underline">maharab131@gmail.com</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/maharabhossen" class="text-accent hover:underline">@maharab549</a></p>
-          <p class="mt-2"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/maharab-hossen" class="text-accent hover:underline">in/maharabhossen</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/maharab549" class="text-accent hover:underline">@maharab549</a></p>
+          <p><strong>Hugging Face:</strong> <a href="https://huggingface.co/maharab131" class="text-accent hover:underline">🤗 maharab131</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/maharab-hossen" class="text-accent hover:underline">in/maharabhossen</a></p>
         </div>
       </nav>
     </aside>
   </div>
 
   <script>
-    // Intersection observer for fade-in
     const fades = document.querySelectorAll('.fade');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -354,7 +402,6 @@
     }, { rootMargin: '-10%' });
     fades.forEach(el => observer.observe(el));
 
-    // Active link highlight logic
     const links = document.querySelectorAll('.nav-link');
     const sections = Array.from(document.querySelectorAll('section[id]'));
     function updateActiveLink() {
@@ -373,10 +420,8 @@
     window.addEventListener('scroll', updateActiveLink);
     window.addEventListener('load', updateActiveLink);
 
-    // Mobile drawer toggling
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
- 
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function openDrawer() {
@@ -392,24 +437,18 @@
       mobileMenuBtn.setAttribute('aria-expanded', 'false');
     }
 
-    mobileMenuBtn && mobileMenuBtn.addEventListener('click', (e) => {
+    mobileMenuBtn && mobileMenuBtn.addEventListener('click', () => {
       const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-      if (expanded) closeDrawer(); else openDrawer();
+      expanded ? closeDrawer() : openDrawer();
     });
     closeDrawerBtn && closeDrawerBtn.addEventListener('click', closeDrawer);
-    drawerBackdrop && drawerBackdrop.addEventListener('click', closeDrawer);
 
-    // Close drawer when any mobile link is clicked and navigate
     mobileLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        closeDrawer();
-      });
+      link.addEventListener('click', closeDrawer);
     });
 
-    // Ensure drawer is closed when resizing to large screens
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1024) {
-        // close any open mobile drawer
         const mdDrawer = mobileDrawer && mobileDrawer.querySelector('.mobile-drawer');
         if (mdDrawer && mdDrawer.classList.contains('open')) {
           closeDrawer();
