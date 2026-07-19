@@ -22,9 +22,8 @@
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
+
     .cert-card {
-      break-inside: avoid;
-      margin-bottom: 1.25rem;
       background: #fff;
       border: 1px solid #e5e7eb;
       border-radius: 0.75rem;
@@ -34,13 +33,38 @@
     }
     .cert-card:hover {
       border-color: #2563eb;
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+      box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
     }
-    .cert-img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
+
+    .cert-img-box {
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 3 / 4;
+      padding: 1.25rem;
+      position: relative;
     }
+    .cert-img-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 0.25rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
     .lightbox {
       position: fixed;
       inset: 0;
@@ -49,7 +73,7 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 1.5rem;
     }
     .lightbox.active { display: flex; }
     .lightbox-img {
@@ -59,26 +83,14 @@
       border-radius: 0.5rem;
       box-shadow: 0 24px 64px rgba(0,0,0,0.4);
     }
-    .masonry {
-      column-count: 1;
-      column-gap: 1.25rem;
+
+    .filter-pill {
+      transition: all 0.2s ease;
     }
-    @media (min-width: 640px) { .masonry { column-count: 2; } }
-    @media (min-width: 1024px) { .masonry { column-count: 3; } }
-    @media (min-width: 1280px) { .masonry { column-count: 4; } }
-    .loader {
-      width: 100%;
-      height: 160px;
-      background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.2s infinite;
-    }
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-    .fade-in { opacity: 0; transition: opacity 0.4s ease; }
-    .fade-in.loaded { opacity: 1; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f9fafb; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
   </style>
 <base target="_blank">
 </head>
@@ -87,48 +99,42 @@
   <!-- Header -->
   <header class="bg-white border-b sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <a href="index.html" class="flex items-center gap-2 text-primary hover:text-accent transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-          <span class="font-medium text-sm">Back to Portfolio</span>
-        </a>
-      </div>
+      <a href="Maharab_Portfolio.html" class="flex items-center gap-2 text-primary hover:text-accent transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        <span class="font-medium text-sm hidden sm:inline">Back to Portfolio</span>
+      </a>
       <h1 class="text-lg sm:text-xl font-bold text-primary">📜 Certificates Gallery</h1>
-      <div class="text-sm text-gray-500" id="count">Loading...</div>
+      <div class="text-sm text-gray-500 font-medium" id="count">0 certificates</div>
     </div>
   </header>
 
-  <!-- Filter Tabs -->
+  <!-- Filters -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
     <div class="flex flex-wrap gap-2" id="filters">
-      <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-primary text-white">All</button>
-      <button data-filter="ai" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">AI & ML</button>
-      <button data-filter="systems" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">Systems</button>
-      <button data-filter="vision" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">Computer Vision</button>
-      <button data-filter="cloud" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">Cloud & Distributed</button>
-      <button data-filter="competition" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">Competitions</button>
-      <button data-filter="other" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">Other</button>
+      <button data-filter="all" class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium bg-primary text-white">All</button>
+      <button data-filter="competition" class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">Competitions</button>
+      <button data-filter="other" class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">Other</button>
     </div>
   </div>
 
   <!-- Gallery -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-    <div class="masonry" id="gallery"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="gallery"></div>
   </main>
 
   <!-- Lightbox -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <button class="absolute top-4 right-4 text-white/80 hover:text-white p-2" onclick="event.stopPropagation(); closeLightbox()">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    <button class="absolute top-4 right-4 text-white/80 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors" onclick="event.stopPropagation(); closeLightbox()">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
-    <button class="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 hidden sm:block" onclick="event.stopPropagation(); prevImage()">
+    <button class="absolute left-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 hidden sm:block transition-colors" onclick="event.stopPropagation(); prevImage()">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
     </button>
-    <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 hidden sm:block" onclick="event.stopPropagation(); nextImage()">
+    <button class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 hidden sm:block transition-colors" onclick="event.stopPropagation(); nextImage()">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </button>
     <img id="lightbox-img" class="lightbox-img" src="" alt="Certificate" onclick="event.stopPropagation()" />
-    <p id="lightbox-caption" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm font-medium bg-black/50 px-4 py-1.5 rounded-full"></p>
+    <p id="lightbox-caption" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white text-sm font-medium bg-black/60 px-5 py-2 rounded-full backdrop-blur-sm whitespace-nowrap max-w-[90vw] overflow-hidden text-ellipsis"></p>
   </div>
 
   <footer class="text-center text-sm text-gray-400 py-8">
@@ -136,21 +142,26 @@
   </footer>
 
   <script>
-    // ============================================================
-    // Images fetched from: https://github.com/maharab549/Maharab131/tree/main/images
-    // ============================================================
+    // Using GitHub Pages URLs for better reliability
+    const BASE_URL = "https://maharab549.github.io/Maharab131/images/";
     const certificates = [
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/2024%20wushu%20compettion.jpg", title: "2024 Wushu Competition", category: "competition" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/2025%20wushu%20compettion.jpg", title: "2025 Wushu Competition", category: "competition" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/25%20wushu%20taichi%20competiiton.jpg", title: "25 Wushu Taichi Competition", category: "competition" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/27%20national%20level.png", title: "27th China Robot & AI Competition — National Level", category: "competition" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/27th%20province%20level.png", title: "27th China Robot & AI Competition — Provincial Level", category: "competition" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/Bd%20clean.jpg", title: "BD Clean Initiative", category: "other" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/Red%20cross%20license.jpg", title: "Red Cross License", category: "other" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/campus%20sport%20program%20third%20prize.jpg", title: "Campus Sport Program — Third Prize", category: "competition" },
-      { url: "https://raw.githubusercontent.com/maharab549/Maharab131/main/images/dormitory%20cultural%20compettion.jpg", title: "Dormitory Cultural Competition", category: "other" },
+      // Tier 1: AI & Robotics Competitions (most relevant to SJTU AI research)
+      { file: "27%20national%20level.png", title: "27th China Robot & AI Competition — National Level Third Prize", category: "competition" },
+      { file: "27th%20province%20level.png", title: "27th China Robot & AI Competition — Provincial Level Second Prize", category: "competition" },
+
+      // Tier 2: Campus & Academic Recognition
+      { file: "campus%20sport%20program%20third%20prize.jpg", title: "Campus Sport Program — Third Prize", category: "competition" },
+      { file: "dormitory%20cultural%20compettion.jpg", title: "Dormitory Cultural Competition Award", category: "other" },
+
+      // Tier 3: Community Service & Social Impact
+      { file: "Red%20cross%20license.jpg", title: "Red Cross License", category: "other" },
+      { file: "Bd%20clean.jpg", title: "BD Clean Initiative Certificate", category: "other" },
+
+      // Tier 4: Sports & Well-roundedness
+      { file: "2025%20wushu%20compettion.jpg", title: "2025 Wushu Competition Award", category: "competition" },
+      { file: "2024%20wushu%20compettion.jpg", title: "2024 Wushu Competition Award", category: "competition" },
+      { file: "25%20wushu%20taichi%20competiiton.jpg", title: "25th Wushu Taichi Competition Award", category: "competition" },
     ];
-    // ============================================================
 
     let currentIndex = 0;
     let filteredCerts = [...certificates];
@@ -159,46 +170,48 @@
       const gallery = document.getElementById("gallery");
       gallery.innerHTML = "";
       filteredCerts = filter === "all" ? certificates : certificates.filter(c => c.category === filter);
-      document.getElementById("count").textContent = filteredCerts.length + " certificates";
+      document.getElementById("count").textContent = filteredCerts.length + " certificate" + (filteredCerts.length !== 1 ? "s" : "");
 
       filteredCerts.forEach((cert, idx) => {
         const card = document.createElement("div");
         card.className = "cert-card";
         card.onclick = () => openLightbox(idx);
 
+        const wrap = document.createElement("div");
+        wrap.className = "cert-img-box";
+
         const loader = document.createElement("div");
-        loader.className = "loader";
+        loader.className = "shimmer";
         loader.id = "loader-" + idx;
 
         const img = document.createElement("img");
-        img.className = "cert-img fade-in";
-        img.dataset.src = cert.url;
+        img.dataset.src = BASE_URL + cert.file;
         img.alt = cert.title;
         img.loading = "lazy";
+        img.style.display = "none";
+        img.style.position = "relative";
+        img.style.zIndex = "1";
         img.onerror = () => {
           loader.style.display = "none";
-          img.style.display = "none";
-          const fallback = document.createElement("div");
-          fallback.className = "p-6 text-center text-gray-400";
-          fallback.innerHTML = `<svg class="w-10 h-10 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><p class="text-sm">${cert.title}</p><p class="text-xs mt-1">Image not available</p>`;
-          card.appendChild(fallback);
+          wrap.innerHTML = `<div class="text-center p-4 z-10 relative"><svg class="w-10 h-10 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><p class="text-sm text-gray-400 font-medium">${cert.title}</p><p class="text-xs text-gray-300 mt-1">Check filename: ${cert.file.replace(/%20/g, ' ')}</p></div>`;
         };
         img.onload = () => {
           loader.style.display = "none";
-          img.classList.add("loaded");
+          img.style.display = "block";
         };
 
-        const caption = document.createElement("div");
-        caption.className = "px-3 py-2.5";
-        caption.innerHTML = `<p class="text-sm font-medium text-gray-800 truncate">${cert.title}</p>`;
+        wrap.appendChild(loader);
+        wrap.appendChild(img);
 
-        card.appendChild(loader);
-        card.appendChild(img);
+        const caption = document.createElement("div");
+        caption.className = "px-4 py-3 border-t border-gray-100 bg-white";
+        caption.innerHTML = `<p class="text-sm font-semibold text-gray-800 leading-snug">${cert.title}</p>`;
+
+        card.appendChild(wrap);
         card.appendChild(caption);
         gallery.appendChild(card);
       });
 
-      // Lazy load with IntersectionObserver
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -207,7 +220,7 @@
             obs.unobserve(img);
           }
         });
-      }, { rootMargin: "100px" });
+      }, { rootMargin: "120px" });
       document.querySelectorAll("img[data-src]").forEach(img => obs.observe(img));
     }
 
@@ -217,29 +230,24 @@
       document.getElementById("lightbox").classList.add("active");
       document.body.style.overflow = "hidden";
     }
-
     function closeLightbox() {
       document.getElementById("lightbox").classList.remove("active");
       document.body.style.overflow = "";
     }
-
     function updateLightbox() {
       const cert = filteredCerts[currentIndex];
-      document.getElementById("lightbox-img").src = cert.url;
+      document.getElementById("lightbox-img").src = BASE_URL + cert.file;
       document.getElementById("lightbox-caption").textContent = cert.title + " (" + (currentIndex + 1) + "/" + filteredCerts.length + ")";
     }
-
     function nextImage() {
       currentIndex = (currentIndex + 1) % filteredCerts.length;
       updateLightbox();
     }
-
     function prevImage() {
       currentIndex = (currentIndex - 1 + filteredCerts.length) % filteredCerts.length;
       updateLightbox();
     }
 
-    // Keyboard navigation
     document.addEventListener("keydown", (e) => {
       const lb = document.getElementById("lightbox");
       if (!lb.classList.contains("active")) return;
@@ -248,10 +256,9 @@
       if (e.key === "ArrowLeft") prevImage();
     });
 
-    // Filter buttons
-    document.querySelectorAll(".filter-btn").forEach(btn => {
+    document.querySelectorAll(".filter-pill").forEach(btn => {
       btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => {
+        document.querySelectorAll(".filter-pill").forEach(b => {
           b.classList.remove("bg-primary", "text-white");
           b.classList.add("bg-gray-100", "text-gray-600");
         });
@@ -261,7 +268,6 @@
       });
     });
 
-    // Init
     renderGallery();
   </script>
 </body>
